@@ -1,6 +1,7 @@
 package com.example.nikkoekasaputra.testscreensuitmedia;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,9 @@ public class DashboardActivity extends AppCompatActivity {
 
     String nama;
 
+    static final int PICK_EVENT_REQUEST = 1;
+    static final int PICK_GUEST_REQUEST = 2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +38,7 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(DashboardActivity.this, EventActivity.class);
-                startActivity(i);
+                startActivityForResult(i, PICK_EVENT_REQUEST);
             }
         });
 
@@ -42,9 +46,23 @@ public class DashboardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(DashboardActivity.this, GuestActivity.class);
-                startActivity(i);
+                startActivityForResult(i, PICK_GUEST_REQUEST);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode==PICK_EVENT_REQUEST) {
+            if (resultCode==RESULT_OK) {
+                btnEvent.setText(data.getStringExtra("result"));
+            }
+        }
+        else if(requestCode==PICK_GUEST_REQUEST){
+            if(resultCode==RESULT_OK){
+                btnGuest.setText(data.getStringExtra("result"));
+            }
+        }
     }
 
     public void bindView(){

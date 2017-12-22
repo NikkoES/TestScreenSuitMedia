@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="2dp"
+    android:layout_marginBottom="4dp">
 
-    <FrameLayout
+    <ImageView
+        android:id="@+id/image_guest"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_launcher_background"/>
 
-        <ImageView
-            android:id="@+id/img_guest"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <TextView
+        android:id="@+id/tv_nama_guest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_vertical"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textStyle="bold"
+        android:textColor="#000"
+        android:background="#fff"
+        tools:text="Nama Guest" />
 
-        <TextView
-            android:id="@+id/tv_nama_guest"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center|center_vertical"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textStyle="bold"
-            android:textColor="#000"
-            tools:text="Nama Guest" />
-
-    </FrameLayout>
-
-</RelativeLayout>
+</FrameLayout>
